@@ -42,7 +42,7 @@ SubstansesData = {
             'price': '16,70',
             'desc': 'Ацетил тетрапептид-40 обладает противовоспалительным эффектом за счет уменьшения продукции интерлейкина-6 и интерлейкина-8 (медиаторы воспаления) и ингибирования высвобождения пептида LL-37 (сигнальный пептид – вызывает расширение капилляров и ингибирует продукцию коллагена). За счет этого уменьшает проявление эритемы и борется с розацеа. Также ацетил тетрапептид-40 ингибирует металлопротеиназы (участвуют в разрушении коллагена) и блокирует меланогенез за счет снижения активности тирозиназы. Подходит для чувствительной кожи, кожи с розацеа. Вводится в готовый остывший продукт в виде раствора с концентрацией 1000 ppm. Нагрев нежелателен. Нежелательно совмещать с протеазами.'
         },
-                {
+        {
             'id': 4,
             'title': 'Гидроксипинаколона ретиноат',
             'text': 'Гидроксипинаколона ретиноат – одна из наиболее современных форм ретиноидов.',
@@ -75,17 +75,17 @@ SubstansesData = {
 #     }})
     
 def GetSubstanses(request):
-    query = request.GET.get('query')
+    query_substances = request.GET.get('query_substances')
 
-    if query:
+    if query_substances:
         # Фильтруем данные, учитывая как поле "type", так и поле "price"
         filtered_data = [it for it in SubstansesData['substanse'] if
-                         query.lower() in it['title'].lower() or query.lower() in it['price'].lower()]
+                         query_substances.lower() in it['title'].lower() or query_substances.lower() in it['price'].lower()]
     else:
         filtered_data = SubstansesData['substanse']
-        query = ""
+        query_substances = ""
 
-    return render(request, "substanses.html", {'filtered_data': filtered_data, 'search_value': query})
+    return render(request, "substanses.html", {'filtered_data': filtered_data, 'search_value': query_substances})
 
 
 
