@@ -8,7 +8,7 @@
     {% block content1 %}
     <form method="GET" action="{% url 'substances' %}">
         <div class="search-bar">
-            <input type="text" class="search__input" name="query" id="search-input" placeholder="Поиск" value="{{search_value}}">
+            <input type="text" class="search__input" name="query_substances" id="search-input" placeholder="Поиск" value="{{search_value}}">
             <button type="submit" id="search-button" class="button_search">Поиск</button>
         </div>
     </form>
