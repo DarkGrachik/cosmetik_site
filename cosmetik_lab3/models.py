@@ -17,7 +17,6 @@ class Cosmetiks(models.Model):
         app_label = 'cosmetik_lab3'
 
 class SubCosm(models.Model):
-    sub_cosm_id = models.AutoField(primary_key=True)
     sub = models.ForeignKey('Substanses', models.DO_NOTHING)
     cosm = models.ForeignKey(Cosmetiks, models.DO_NOTHING)
     percent_in = models.IntegerField()
